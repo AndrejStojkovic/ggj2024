@@ -8,6 +8,9 @@ public class PlayerJump : MonoBehaviour
     public Rigidbody2D rb;
     public float jump;
     private bool isJumping;
+    float horizontalInput;
+    float moveSped = 10f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -15,6 +18,8 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
+        horizontalInput = Input.GetAxis("Vertical");
+
         if(Input.GetButtonDown("Jump") && !isJumping) {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
             isJumping = true;
@@ -25,5 +30,10 @@ public class PlayerJump : MonoBehaviour
         if (other.gameObject.CompareTag("Ground")) {
             isJumping = false;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, horizontalInput * moveSped);
     }
 }
