@@ -70,4 +70,18 @@ public class GameManager : MonoBehaviour
             GameState = GameState.GAMEOVER;
         }
     }
+
+    public void Pause(bool state)
+    {
+        if(state)
+        {
+            GameState = GameState.PAUSED;
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            GameState = GameState.RUNNING;
+            Time.timeScale = 1f;
+        }
+    }
 }
