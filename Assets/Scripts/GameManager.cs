@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         //     return;
         // }
         instance = this;
+        DontDestroyOnLoad(this);
     }
 
     void Start()
