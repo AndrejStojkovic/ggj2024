@@ -639,6 +639,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wait: 0.5
   Obstacle: {fileID: 2086825763490263435, guid: 080bbfdfbf4f62543844d03ba2ad11f6, type: 3}
+  Platform:
+  - {fileID: 1791195612}
+  - {fileID: 425714444}
+  - {fileID: 1431096889}
 --- !u!1 &1791195612
 GameObject:
   m_ObjectHideFlags: 0

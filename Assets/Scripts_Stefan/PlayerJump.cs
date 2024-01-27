@@ -11,7 +11,7 @@ public class PlayerJump : MonoBehaviour
     private int previousRow = 1;
     public int row = 0;
     private int lives = 2;
-    public int flag = 1;
+
     //public float jump;
     //private bool isJumping;
 
@@ -56,7 +56,6 @@ public class PlayerJump : MonoBehaviour
         // dumb check, but works :) 
         if(lives == 0){
             Debug.Log("Game over!");
-            flag = 0;
         }
     }
 
