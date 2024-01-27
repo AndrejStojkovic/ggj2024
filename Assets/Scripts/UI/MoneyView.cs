@@ -15,6 +15,6 @@ public class MoneyView : MonoBehaviour
 
     void Update()
     {
-        MoneyText.text = "$" + gm.Money.ToString();
+        MoneyText.text = gm.Money.ToString();
     }
 }
