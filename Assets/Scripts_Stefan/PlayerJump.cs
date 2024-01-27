@@ -11,6 +11,18 @@ public class PlayerJump : MonoBehaviour
     private int previousRow = 1;
     public int row = 0;
     private int lives = 2;
+    private bool hasInvincibility = false;
+    private float invincibilityStartTime;
+    private float currentGameTime;
+    private float invincibilityDuration = 8f;
+    public float CurrentGameTime
+    {
+        get
+        {
+            return currentGameTime;
+        }
+    }
+
     public GameState GameState;
 
     //public float jump;
@@ -18,12 +30,15 @@ public class PlayerJump : MonoBehaviour
 
     void Start()
     {
+        currentGameTime = 0;
         rb = GetComponent<Rigidbody2D>();
         previousRow = row;
     }
 
     void Update()
     {
+        currentGameTime += Time.deltaTime;
+
         if(Input.GetKeyDown(KeyCode.UpArrow) && row < 2){
             row++;
         }
@@ -38,6 +53,13 @@ public class PlayerJump : MonoBehaviour
 
         previousRow = row;
 
+        if (
+            hasInvincibility 
+                && (currentGameTime - invincibilityStartTime) / invincibilityDuration >= 1f
+        ) {
+            hasInvincibility = false;
+        }
+
         //if(Input.GetButtonDown("Jump") && !isJumping) {
         //    rb.gravityScale = 5;
         //    rb.AddForce(new Vector2(rb.velocity.x, jump));
@@ -48,16 +70,34 @@ public class PlayerJump : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        string tag = other.tag;
+
         Destroy(other.gameObject);
 
-        if(lives != 0){
-            lives--;
-        }
+        switch(tag) {
+            case "Obstacle":
+                if (!hasInvincibility) {
+                    if (lives != 0) {
+                        lives--;
+                    }
 
-        // dumb check, but works :) 
-        if(lives == 0){
-            Debug.Log("Game over!");
-            GameState = GameState.GAMEOVER;
+                    // dumb check, but works :)
+                    if(lives == 0){
+                        Debug.Log("Game over!");
+                        GameState = GameState.GAMEOVER;
+                    }
+                }
+                break;
+            case "ExtraLife":
+                // only allow a maximum of 2 lives per run
+                if (lives < 2) {
+                    lives++;
+                }
+                break;
+            case "Invincibility":
+                hasInvincibility = true;
+                invincibilityStartTime = currentGameTime;
+                break;
         }
     }
 
