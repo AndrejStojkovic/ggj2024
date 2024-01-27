@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Missile
   - Ground
+  - Invincibility
+  - ExtraLife
   layers:
   - Default
   - TransparentFX

@@ -711,6 +711,7 @@ MonoBehaviour:
   - {fileID: 1431096889}
   obstacle: {fileID: 2086825763490263435, guid: 080bbfdfbf4f62543844d03ba2ad11f6, type: 3}
   row: 0
+  GameState: 0
 --- !u!1 &1695200418
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +873,8 @@ MonoBehaviour:
   - {fileID: 1791195612}
   - {fileID: 425714444}
   - {fileID: 1431096889}
+  Invincibility: {fileID: 5929780182759981855, guid: 8210f776a9fe4604f9a9808c70bdfc51, type: 3}
+  ExtraLife: {fileID: 5048643773592608418, guid: 86d1fa427d716c643ab20f1bf6699cd3, type: 3}
 --- !u!1 &1791195612
 GameObject:
   m_ObjectHideFlags: 0
