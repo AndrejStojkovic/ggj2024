@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private static PlayerController instance;
+    public static PlayerController Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                Debug.LogError("[ERROR] Player not instantiated.");
+            }
+            return instance;
+        }
+    }
+
     public Rigidbody2D rb;
     public float Speed = 10f;
 
@@ -12,12 +25,15 @@ public class PlayerController : MonoBehaviour
     public float Radius = 2f;
     public LayerMask LayerMask;
 
+    public int PendingMoney = 0;
+
     void Start()
     {
         if(rb == null)
         {
             rb = GetComponent<Rigidbody2D>();
         }
+        PendingMoney = 0;
     }
 
     void Update()
@@ -51,7 +67,10 @@ public class PlayerController : MonoBehaviour
             Junkie junkie = collisions[i].GetComponentInParent<Junkie>();
             if(junkie != null && junkie.Available)
             {
-                junkie.Use();
+                if(junkie.Use())
+                {
+                    PendingMoney += junkie.Amount;
+                }
                 Debug.Log("[DEALING] Junkie found, using!", junkie.gameObject);
                 break;
             }

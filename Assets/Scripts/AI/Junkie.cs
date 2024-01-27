@@ -7,8 +7,9 @@ public class Junkie : MonoBehaviour
     public bool Available = true;
     public int Amount = 1;
 
-    public virtual void Use()
+    public virtual bool Use()
     {
         Available = false;
+        return true;
     }
 }
