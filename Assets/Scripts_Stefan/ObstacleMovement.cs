@@ -6,7 +6,7 @@ public class ObstacleMovement : MonoBehaviour
 {
     public float Speed;
 
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector3.left * Speed, Camera.main.transform);
     }
