@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: e894ddee4c447bc459b66ff0080c2c66
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: e144203514ca24f4bb8aa3a4b8fc56ad
+  - enabled: 1
+    path: Assets/Scenes/MainGame.unity
+    guid: 54de1c53fe74188419cdefa8a9411eb2
+  - enabled: 1
+    path: Assets/Scenes/PoliceChase.unity
+    guid: 285712d9e07f79a4fa3287911de015af
+  - enabled: 1
+    path: Assets/Scenes/DreamMinigame.unity
+    guid: f9fc6c3982f2df343afaf33a03ecd671
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
