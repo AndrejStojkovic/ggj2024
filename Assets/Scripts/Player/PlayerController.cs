@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         if(input != 0 && transform.localScale.x != input)
         {
-            transform.localScale = new Vector3(input * Scale, Scale, Scale);
+            transform.localScale = new Vector3(input * Scale, Scale, 1f);
         }
 
         if(Input.GetKeyDown(DealKey))
