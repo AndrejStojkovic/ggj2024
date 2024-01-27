@@ -12,6 +12,10 @@ public class Informant : Junkie
         if(rand < ReportChance)
         {
             //ReportManager.Report();
+            Debug.Log("An Informant reported you!");
+            return;
         }
+
+        base.Use();
     }
 }

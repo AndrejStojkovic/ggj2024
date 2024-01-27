@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
             }
 
             Junkie junkie = collisions[i].GetComponentInParent<Junkie>();
-            if(junkie != null)
+            if(junkie != null && junkie.Available)
             {
                 junkie.Use();
                 Debug.Log("[DEALING] Junkie found, using!", junkie.gameObject);
