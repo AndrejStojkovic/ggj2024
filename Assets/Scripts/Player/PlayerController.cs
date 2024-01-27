@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rb;
     public float Speed = 10f;
+    public Animator Animator;
+    public float Scale = 1f;
 
     [Header("Dealing System")]
     public KeyCode DealKey;
@@ -40,6 +42,12 @@ public class PlayerController : MonoBehaviour
     {
         var input = Input.GetAxisRaw("Horizontal");
         rb.AddForce(new Vector2(input * Speed * Time.deltaTime, 0f));
+        Animator.Play(input == 0f ? "Idle" : "Walk");
+
+        if(input != 0 && transform.localScale.x != input)
+        {
+            transform.localScale = new Vector3(input * Scale, Scale, Scale);
+        }
 
         if(Input.GetKeyDown(DealKey))
         {
