@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     public int PendingMoney = 0;
 
+    public bool CanMove = true;
+
     void Start()
     {
         if(rb == null)
@@ -36,23 +38,42 @@ public class PlayerController : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
         }
         PendingMoney = 0;
+        CanMove = true;
     }
 
     void Update()
     {
-        var input = Input.GetAxisRaw("Horizontal");
-        rb.AddForce(new Vector2(input * Speed * Time.deltaTime, 0f));
-        Animator.Play(input == 0f ? "Idle" : "Walk");
-
-        if(input != 0 && transform.localScale.x != input)
+        if(CanMove)
         {
-            transform.localScale = new Vector3(input * Scale, Scale, 1f);
+            var input = Input.GetAxisRaw("Horizontal");
+            rb.AddForce(new Vector2(input * Speed * Time.deltaTime, 0f));
+            // Animator.Play(input == 0f ? "Idle" : "Walk");
+            Animator.SetBool("IsIdle", input == 0f);
+
+            if(input != 0 && transform.localScale.x != input)
+            {
+                transform.localScale = new Vector3(input * Scale, Scale, 1f);
+            }
         }
 
         if(Input.GetKeyDown(DealKey))
         {
             Deal();
+            CanMove = false;
+            // Animator.Play("Dealing");
+            Animator.SetBool("IsDealing", true);
         }
+
+        if(Input.GetKeyUp(DealKey))
+        {
+            Animator.SetBool("IsDealing", false);
+        }
+    }
+
+    public void OnDealingEnded()
+    {
+        Animator.SetBool("IsIdle", true);
+        CanMove = true;
     }
 
     public void Deal()
