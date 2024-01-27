@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f1cb545565f7e47816778d26d75da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
+  Animator: {fileID: 1172149724279627086}
   Available: 1
   Amount: 1
 --- !u!95 &1172149724279627086
