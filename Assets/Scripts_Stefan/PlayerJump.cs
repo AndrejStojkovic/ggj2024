@@ -10,8 +10,9 @@ public class PlayerJump : MonoBehaviour
     public GameObject obstacle;
     private int previousRow = 1;
     public int row = 0;
-    private int count = 2;
-    public int flag = 1;
+    private int lives = 2;
+    public GameState GameState;
+
     //public float jump;
     //private bool isJumping;
 
@@ -45,15 +46,18 @@ public class PlayerJump : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(obstacle.gameObject);
+        Destroy(other.gameObject);
 
-        if(count != 0){
-            count--;
+        if(lives != 0){
+            lives--;
         }
-        if(count == 0){
-            flag = 0;
+
+        // dumb check, but works :) 
+        if(lives == 0){
+            Debug.Log("Game over!");
+            GameState = GameState.GAMEOVER;
         }
     }
 

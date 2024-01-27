@@ -6,13 +6,16 @@ public class CreateObstacle : MonoBehaviour
 {
     public float wait = 0.5f;
     public GameObject Obstacle;
-    // Start is called before the first frame update
+    public GameObject[] Platform = new GameObject[3];
+
     void Start()
     {
         InvokeRepeating("createObstacle", wait, wait);
     }
 
     void createObstacle() {
-        Instantiate(Obstacle, new Vector3(10, Random.Range(-10, 10), 0), Quaternion.identity);
+        int row =  Random.Range(0,3);
+        
+        Instantiate(Obstacle, new Vector3(10, Platform[row].transform.position.y, 0), Quaternion.identity);
     }
 }
