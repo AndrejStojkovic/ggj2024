@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
     public int Money = 0;
     public int Price = 100;
 
+    [Space(10)]
+
+    public int PoliceChaseScene = 0;
+
     public float CurrentGameTime
     {
         get
@@ -57,6 +61,13 @@ public class GameManager : MonoBehaviour
     {
         currentGameTime = 0;
         GameState = GameState.RUNNING;
+
+        if(SceneManager.Instance == null)
+        {
+            GameObject sceneManager = Instantiate(new GameObject());
+            sceneManager.name = "SceneManager";
+            sceneManager.AddComponent<SceneManager>();
+        }
     }
 
     void Update()
@@ -71,6 +82,7 @@ public class GameManager : MonoBehaviour
         if(currentGameTime > GameTime)
         {
             GameState = GameState.GAMEOVER;
+            SceneManager.Instance.OpenScene(PoliceChaseScene);
         }
     }
 

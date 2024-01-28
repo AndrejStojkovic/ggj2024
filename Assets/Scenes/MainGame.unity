@@ -3554,6 +3554,7 @@ MonoBehaviour:
   Day: 0
   Money: 0
   Price: 500
+  PoliceChaseScene: 3
 --- !u!4 &1999682583
 Transform:
   m_ObjectHideFlags: 0
