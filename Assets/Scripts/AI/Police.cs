@@ -68,7 +68,7 @@ public class Police : MonoBehaviour
         float val = Parent.Collider.bounds.extents.x;
         Target = Random.Range(-val, val);
         int dir = Target > transform.position.x ? 1 : -1;
-        transform.localScale = new Vector3(dir * transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        transform.localScale = new Vector3(dir, transform.localScale.y, transform.localScale.z);
         Debug.Log("New Direction: " + dir + ", (" + Target + " " + transform.position.x + ")", gameObject);
     }
 }
