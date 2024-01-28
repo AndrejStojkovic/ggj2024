@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     public bool IsDealing = false;
     public bool CanMove = true;
+
+    public UnityEvent<bool> OnDealingStateChange = new UnityEvent<bool>();
 
     void Awake()
     {
@@ -67,6 +70,7 @@ public class PlayerController : MonoBehaviour
             Deal();
             CanMove = false;
             IsDealing = true;
+            OnDealingStateChange.Invoke(IsDealing);
             Animator.SetBool("IsDealing", true);
         }
 
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
         Animator.SetBool("IsIdle", true);
         CanMove = true;
         IsDealing = false;
+        OnDealingStateChange.Invoke(IsDealing);
     }
 
     public void Deal()

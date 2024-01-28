@@ -4,4 +4,10 @@ using UnityEngine;
 
 public class DealingSystem : MonoBehaviour
 {
+    private PlayerController playerController;
+
+    void Start()
+    {
+        playerController = PlayerController.Instance;
+    }
 }
