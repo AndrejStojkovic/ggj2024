@@ -169,6 +169,10 @@ MonoBehaviour:
   Animator: {fileID: 1172149724279627086}
   Available: 1
   Amount: 1
+  AmountRange: {x: 0, y: 1}
+  IntervalRange: {x: 0, y: 15}
+  CheckDelay: 10
+  MinDistanceForDespawn: 20
 --- !u!95 &1172149724279627086
 Animator:
   serializedVersion: 5
