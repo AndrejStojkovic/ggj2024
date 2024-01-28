@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
 
     public bool CanMove = true;
 
+    void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         if(rb == null)
@@ -47,7 +52,6 @@ public class PlayerController : MonoBehaviour
         {
             var input = Input.GetAxisRaw("Horizontal");
             rb.AddForce(new Vector2(input * Speed * Time.deltaTime, 0f));
-            // Animator.Play(input == 0f ? "Idle" : "Walk");
             Animator.SetBool("IsIdle", input == 0f);
 
             if(input != 0 && transform.localScale.x != input)
@@ -60,7 +64,6 @@ public class PlayerController : MonoBehaviour
         {
             Deal();
             CanMove = false;
-            // Animator.Play("Dealing");
             Animator.SetBool("IsDealing", true);
         }
 
@@ -88,7 +91,7 @@ public class PlayerController : MonoBehaviour
             Police police = collisions[i].GetComponentInParent<Police>();
             if(police != null)
             {
-                // Report System
+                ReportSystem.Report();
                 Debug.Log("[DEALING] Don't deal to police officers!");
                 break;
             }

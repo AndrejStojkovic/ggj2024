@@ -11,8 +11,8 @@ public class Informant : Junkie
         float rand = Random.Range(0f, 1f);
         if(rand < ReportChance)
         {
-            //ReportManager.Report();
             Debug.Log("An Informant reported you!");
+            ReportSystem.Report();
             return false;
         }
 

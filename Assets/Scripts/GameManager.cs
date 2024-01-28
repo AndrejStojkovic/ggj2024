@@ -7,6 +7,7 @@ public enum GameState
     NONE = 0,
     RUNNING,
     PAUSED,
+    CAUGHT,
     GAMEOVER
 }
 
