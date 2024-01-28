@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [System.Serializable]
 public class SpawnData
@@ -107,10 +108,18 @@ public class SpawnSystem : MonoBehaviour
 
             GameObject go = Instantiate(Prefabs[idx].Prefab);
             go.transform.position = new Vector3(x, Offset.y, Offset.z);
+            float originalScale = go.transform.localScale.x;
             float turned = Random.Range(0f, 1f);
-            go.transform.localScale = new Vector3(turned < 0.5f ? 1 : -1, go.transform.localScale.y, go.transform.localScale.z);
+            float mult = turned < 0.5f ? 1 : -1;
+            go.transform.localScale = new Vector3(originalScale * mult, go.transform.localScale.y, go.transform.localScale.z);
             Spawned.Add(go);
 
+            Junkie junkie = go.GetComponentInParent<Junkie>();
+
+            if(junkie != null)
+            {
+                junkie.SetPopup(turned < 0.5f);
+            }
 
             Police police = go.GetComponentInParent<Police>();
             

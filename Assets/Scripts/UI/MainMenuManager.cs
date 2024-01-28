@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public Button PlayButton;
     public float Delay = 1f;
     public float FadeDuration = 2f;
 
@@ -17,12 +18,13 @@ public class MainMenuManager : MonoBehaviour
     {
         fadeController = FadeController.Instance;
         fadeController.Fade.color = Color.black;
+        PlayButton.onClick.AddListener(OnPlayButtonClicked);
         StartCoroutine(DelayedStart(Delay));
     }
 
-    void Update()
+    public void OnPlayButtonClicked()
     {
-        if(canStart && Input.anyKeyDown)
+        if(canStart)
         {
             Debug.Log("Start Game!");
             fadeController.OnFadeCompleted.AddListener(OnFadeInEnded);

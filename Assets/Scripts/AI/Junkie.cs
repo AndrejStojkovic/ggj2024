@@ -12,9 +12,11 @@ public class Junkie : MonoBehaviour
     public int Amount = 1;
     public Vector2 AmountRange = new Vector2(0, 1);
 
+    public PopupManager PopupManager;
+
     [Header("Pop-up")]
     public Vector2 IntervalRange = new Vector2(0f, 15f);
-    // public GameObject Popup;
+    public GameObject Popup;
     private float popUpTime = 0f;
     private float popUpStart = 0f;
     private bool popUpSet = false;
@@ -32,6 +34,7 @@ public class Junkie : MonoBehaviour
         popUpStart = 0f;
         popUpTime = Random.Range(IntervalRange.x, IntervalRange.y);
         popUpSet = false;
+        Popup.SetActive(false);
     }
 
     void Update()
@@ -47,16 +50,21 @@ public class Junkie : MonoBehaviour
 
         if(!popUpSet && Available && gm.CurrentGameTime > popUpStart + popUpTime)
         {
-            // Popup.SetActive(true);
+            Popup.SetActive(true);
             popUpSet = true;
         }
+    }
+
+    public void SetPopup(bool state)
+    {
+        PopupManager.SetPopup(state);
     }
 
     public virtual bool Use()
     {
         Animator.Play("Deal");
         Available = false;
-        // Popup.SetActive(false);
+        Popup.SetActive(false);
         return true;
     }
 }

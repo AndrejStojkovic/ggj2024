@@ -20,9 +20,11 @@ public class SpawnSystemFixed : MonoBehaviour
             if(rand < Probability)
             {
                 GameObject go = Instantiate(SpawnData.Prefab);
+                float originalScale = go.transform.localScale.x;
                 go.transform.position = Locations[i].position;
                 float turned = Random.Range(0f, 1f);
-                go.transform.localScale = new Vector3(turned < 0.5f ? 1 : -1, go.transform.localScale.y, go.transform.localScale.z);
+                float newScale = originalScale * (turned < 0.5f ? 1 : -1);
+                go.transform.localScale = new Vector3(newScale, go.transform.localScale.y, go.transform.localScale.z);
                 Spawned.Add(go);
             }
         }
