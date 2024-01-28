@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public GameState GameState;
 
     public int Money = 0;
+    public int Price = 100;
 
     public float CurrentGameTime
     {

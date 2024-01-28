@@ -84,6 +84,18 @@ public class PlayerController : MonoBehaviour
         Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position, Radius, LayerMask);
         Debug.Log("[DEALING] Dealing!");
 
+        // Check if there is a police nearby, just in case
+        for(int i = 0; i < collisions.Length; i++)
+        {
+            Police isPolice = collisions[i].GetComponentInParent<Police>();
+            if(isPolice != null)
+            {
+                ReportSystem.Report();
+                Debug.Log("[DEALING] A police office saw you nearby!");
+                return;
+            }
+        }
+
         for(int i = 0; i < collisions.Length; i++)
         {
             Debug.Log("Collision found: " + collisions[i].transform.name);
@@ -102,6 +114,7 @@ public class PlayerController : MonoBehaviour
                 if(junkie.Use())
                 {
                     PendingMoney += junkie.Amount;
+                    MainGameCanvas.Instance.MoneyNotification(junkie.Amount);
                 }
                 Debug.Log("[DEALING] Junkie found, using!", junkie.gameObject);
                 break;
