@@ -16,6 +16,7 @@ public class SpawnSystem : MonoBehaviour
     public Collider Collider;
     public float MinDistance = 12f;
     public float Delay = 5f;
+    public int MinPerSpawn = 1;
     public int MaxPerSpawn = 3;
     public int Cap = 20;
     public Vector3 Offset = new Vector3(0f, 1f, 0f);
@@ -54,7 +55,7 @@ public class SpawnSystem : MonoBehaviour
             return;
         }
 
-        int count = Random.Range(1, MaxPerSpawn + 1);
+        int count = Random.Range(MinPerSpawn, MaxPerSpawn + 1);
         int failSafe = 0;
 
         if(target != -1)

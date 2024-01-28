@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     public int PendingMoney = 0;
 
+    public bool IsDealing = false;
     public bool CanMove = true;
 
     void Awake()
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         }
         PendingMoney = 0;
         CanMove = true;
+        IsDealing = false;
     }
 
     void Update()
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
         {
             Deal();
             CanMove = false;
+            IsDealing = true;
             Animator.SetBool("IsDealing", true);
         }
 
@@ -77,6 +80,7 @@ public class PlayerController : MonoBehaviour
     {
         Animator.SetBool("IsIdle", true);
         CanMove = true;
+        IsDealing = false;
     }
 
     public void Deal()

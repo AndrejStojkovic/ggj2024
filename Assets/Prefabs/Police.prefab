@@ -139,7 +139,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 0.01
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -166,6 +166,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3826fc6b7c0ee7647b247c08d0899726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 5449628779961305479}
+  Animator: {fileID: 1172149724279627086}
+  State: 0
+  Speed: 10
+  Target: 0
+  RestTime: 15
+  CheckTime: 5
+  Radius: 8
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!95 &1172149724279627086
 Animator:
   serializedVersion: 5
