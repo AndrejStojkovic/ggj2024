@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class MoneyView : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MoneyView : MonoBehaviour
 
     void Update()
     {
-        MoneyText.text = (gm.Money + pc.PendingMoney).ToString();
+        // MoneyText.text = (gm.Money + pc.PendingMoney).ToString();
+        MoneyText.text = String.Format("{0:n0}", gm.Money + pc.PendingMoney);
     }
 }
