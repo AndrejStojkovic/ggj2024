@@ -162,6 +162,8 @@ MonoBehaviour:
   MinPerSpawn: 1
   MaxPerSpawn: 1
   Cap: 3
+  MinAmount: 1
+  MaxAmount: 9
   Offset: {x: 0, y: 5, z: 0}
   StartNum: 0
 --- !u!4 &116635816
@@ -1185,6 +1187,8 @@ MonoBehaviour:
   MinPerSpawn: 1
   MaxPerSpawn: 1
   Cap: 10
+  MinAmount: 1
+  MaxAmount: 9
   Offset: {x: 0, y: 5, z: 0}
   StartNum: 4
 --- !u!4 &621745541
@@ -3501,6 +3505,8 @@ MonoBehaviour:
   - {fileID: 1571758533}
   - {fileID: 803661692}
   Probability: 0.2
+  MinAmount: 1
+  MaxAmount: 9
 --- !u!4 &1989391015
 Transform:
   m_ObjectHideFlags: 0
@@ -3618,7 +3624,7 @@ MonoBehaviour:
   GameState: 0
   Day: 0
   Money: 0
-  Price: 500
+  Price: 100
   PoliceChaseScene: 3
 --- !u!4 &1999682583
 Transform:

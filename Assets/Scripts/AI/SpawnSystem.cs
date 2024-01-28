@@ -20,6 +20,8 @@ public class SpawnSystem : MonoBehaviour
     public int MinPerSpawn = 1;
     public int MaxPerSpawn = 3;
     public int Cap = 20;
+    public int MinAmount = 1;
+    public int MaxAmount = 9;
     public Vector3 Offset = new Vector3(0f, 1f, 0f);
 
     public int StartNum = 8;
@@ -118,6 +120,7 @@ public class SpawnSystem : MonoBehaviour
 
             if(junkie != null)
             {
+                junkie.Amount = Random.Range(MinAmount, MaxAmount + 1);
                 junkie.SetPopup(turned < 0.5f);
             }
 

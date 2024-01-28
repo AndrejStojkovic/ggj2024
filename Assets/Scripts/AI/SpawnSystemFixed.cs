@@ -9,6 +9,9 @@ public class SpawnSystemFixed : MonoBehaviour
     public Transform[] Locations;
     public float Probability = 0.2f;
 
+    public int MinAmount = 1;
+    public int MaxAmount = 9;
+
     private List<GameObject> Spawned = new List<GameObject>();
 
     void Start()
@@ -26,6 +29,12 @@ public class SpawnSystemFixed : MonoBehaviour
                 float newScale = originalScale * (turned < 0.5f ? 1 : -1);
                 go.transform.localScale = new Vector3(newScale, go.transform.localScale.y, go.transform.localScale.z);
                 Spawned.Add(go);
+
+                Junkie junkie = go.GetComponentInParent<Junkie>();
+                if(junkie != null)
+                {
+                    junkie.Amount = Random.Range(MinAmount, MaxAmount + 1);
+                }
             }
         }
     }
