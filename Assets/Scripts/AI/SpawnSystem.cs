@@ -77,7 +77,7 @@ public class SpawnSystem : MonoBehaviour
 
             int idx = -1;
             float prob = Random.Range(0f, 1f);
-            Debug.Log("Probability on this bitch: " + prob);
+
             for(int j = 0; j < Prefabs.Length; j++)
             {
                 if(prob < Prefabs[j].Probability)
