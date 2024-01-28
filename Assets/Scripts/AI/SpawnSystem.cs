@@ -96,6 +96,13 @@ public class SpawnSystem : MonoBehaviour
             GameObject go = Instantiate(Prefabs[idx].Prefab);
             go.transform.position = new Vector3(x, Offset.y, Offset.z);
             Spawned.Add(go);
+
+            Police police = go.GetComponentInParent<Police>();
+            
+            if(police != null)
+            {
+                police.Parent = this;
+            }
         }
 
         startTime = gm.CurrentGameTime;
