@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreateObstacle : MonoBehaviour
 {
     public float wait = 0.5f;
-    public GameObject Obstacle;
+    public GameObject[] Obstacles = new GameObject[4];
     public GameObject[] Platform = new GameObject[3];
     public GameObject Invincibility;
     public GameObject ExtraLife;
@@ -39,7 +39,10 @@ public class CreateObstacle : MonoBehaviour
                 Instantiate(ExtraLife, new Vector3(10, Platform[row].transform.position.y, 0), Quaternion.identity);
             }
         } else {
-            Instantiate(Obstacle, new Vector3(10, Platform[row].transform.position.y, 0), Quaternion.identity);
+            int obstacleToSpawn = Random.Range(0, 4);
+            GameObject obstacle = Obstacles[obstacleToSpawn];
+
+            Instantiate(obstacle, new Vector3(10, Platform[row].transform.position.y, 0), Quaternion.identity);
         }
     }
 }
