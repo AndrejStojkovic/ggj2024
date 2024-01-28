@@ -257,6 +257,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125099511}
   m_CullTransparentMesh: 1
+--- !u!1 &134706491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134706492}
+  - component: {fileID: 134706493}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134706492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134706491}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.01, z: 4.3811064}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 621745541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &134706493
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134706491}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 100, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &145408517
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Motorcyclist
       objectReference: {fileID: 0}
+    - target: {fileID: 5170267243060585176, guid: 737a31cde22b8af40935c4eed0217bdf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -470,8 +527,8 @@ Transform:
   m_GameObject: {fileID: 217936648}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -70, y: 7, z: 0}
-  m_LocalScale: {x: 1, y: 15, z: 1}
+  m_LocalPosition: {x: -57.5, y: 7, z: 0}
+  m_LocalScale: {x: 1, y: 24.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1426759667}
@@ -528,7 +585,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217936648}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -840,6 +897,68 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &621745539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 621745541}
+  - component: {fileID: 621745540}
+  m_Layer: 0
+  m_Name: SpawnSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &621745540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621745539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0591cc61a729e2f41941b8f6f8495143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Junkies
+  Prefabs:
+  - Prefab: {fileID: 4895513925895797445, guid: 07d58dc4e690db84da01a2e764b6f91c, type: 3}
+    Probability: 0.02
+  - Prefab: {fileID: 5170267243060585176, guid: 737a31cde22b8af40935c4eed0217bdf, type: 3}
+    Probability: 0.3
+  - Prefab: {fileID: 8636774195143429910, guid: 7c244848483335d4180ec8c0b8935ca6, type: 3}
+    Probability: 0.6
+  - Prefab: {fileID: 9215906584551621746, guid: 4b9491d10b4e3764fbf587e6e11d3985, type: 3}
+    Probability: 1
+  Collider: {fileID: 134706493}
+  MinDistance: 20
+  Delay: 10
+  MaxPerSpawn: 2
+  Cap: 10
+  Offset: {x: 0, y: 5, z: 0}
+  StartNum: 5
+--- !u!4 &621745541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621745539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.31623283, y: 4.998139, z: -4.3811064}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 134706492}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &649133332
@@ -1881,8 +2000,8 @@ Transform:
   m_GameObject: {fileID: 1613914520}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70, y: 7, z: 0}
-  m_LocalScale: {x: 1, y: 15, z: 1}
+  m_LocalPosition: {x: 57.85, y: 7, z: 0}
+  m_LocalScale: {x: 1, y: 24.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1426759667}
@@ -1939,7 +2058,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613914520}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2352,6 +2471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrackPussy
       objectReference: {fileID: 0}
+    - target: {fileID: 8636774195143429910, guid: 7c244848483335d4180ec8c0b8935ca6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2399,6 +2522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameTime: 90
   GameState: 0
+  Day: 0
   Money: 0
   Price: 500
 --- !u!4 &1999682583
@@ -2472,6 +2596,10 @@ PrefabInstance:
     - target: {fileID: 4895513925895797445, guid: 07d58dc4e690db84da01a2e764b6f91c, type: 3}
       propertyPath: m_Name
       value: BigBoy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4895513925895797445, guid: 07d58dc4e690db84da01a2e764b6f91c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2794,6 +2922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrackHead
       objectReference: {fileID: 0}
+    - target: {fileID: 9215906584551621746, guid: 4b9491d10b4e3764fbf587e6e11d3985, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2863,6 +2995,7 @@ SceneRoots:
   - {fileID: 1999682583}
   - {fileID: 435327302}
   - {fileID: 593492467}
+  - {fileID: 621745541}
   - {fileID: 1550866812}
   - {fileID: 1553813049}
   - {fileID: 678662022}

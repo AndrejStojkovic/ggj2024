@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public float GameTime = 90f;
     public GameState GameState;
 
+    public int Day = 0;
     public int Money = 0;
     public int Price = 100;
 
