@@ -28,6 +28,18 @@ public class SpawnSystem : MonoBehaviour
     private PlayerController playerController;
     private float startTime;
 
+    public float StartTime
+    {
+        get
+        {
+            return startTime;
+        }
+        set
+        {
+            startTime = value;
+        }
+    }
+
     private List<GameObject> Spawned = new List<GameObject>();
 
     void Start()
@@ -95,7 +107,10 @@ public class SpawnSystem : MonoBehaviour
 
             GameObject go = Instantiate(Prefabs[idx].Prefab);
             go.transform.position = new Vector3(x, Offset.y, Offset.z);
+            float turned = Random.Range(0f, 1f);
+            go.transform.localScale = new Vector3(turned < 0.5f ? 1 : -1, go.transform.localScale.y, go.transform.localScale.z);
             Spawned.Add(go);
+
 
             Police police = go.GetComponentInParent<Police>();
             
