@@ -24,5 +24,7 @@ public class ReportSystem : MonoBehaviour
         var player = PlayerController.Instance;
         player.CanMove = false;
         player.Animator.Play("Scared");
+        // var camera = CameraController.Instance;
+        FlexibleCameraSwitch.Instance.SwitchCam();
     }
 }

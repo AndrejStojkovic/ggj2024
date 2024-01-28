@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    private static CameraController instance;
+    public static CameraController Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+
     public Transform Target;
     public Vector3 Offset;
     public float SmoothTime = 0.2f;
     public Vector2 Clamp;
 
     private Vector3 velocity;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void FixedUpdate()
     {
