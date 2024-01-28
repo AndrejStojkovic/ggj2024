@@ -131,6 +131,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnCaught()
+    {
+        SceneManager.Instance.OpenScene(GameManager.Instance.PoliceChaseScene);
+    }
+
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Radius);

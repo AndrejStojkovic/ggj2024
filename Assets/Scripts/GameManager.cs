@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour
         if(currentGameTime > GameTime)
         {
             GameState = GameState.GAMEOVER;
-            SceneManager.Instance.OpenScene(PoliceChaseScene);
         }
     }
 
