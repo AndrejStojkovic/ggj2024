@@ -10,10 +10,10 @@ public class RepeatCamera : MonoBehaviour
     void Start()
     {
         StartPosition = transform.position;
-        RepeatWidth = GetComponent<BoxCollider2D>().size.x / 2;
+        RepeatWidth = gameObject.GetComponent<Renderer>().bounds.size.x;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(transform.position.x < StartPosition.x - RepeatWidth) {
             transform.position = StartPosition;
