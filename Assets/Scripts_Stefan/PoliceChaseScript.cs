@@ -20,6 +20,8 @@ public class PoliceChaseScript : MonoBehaviour
     public float GameTime = 30f;
     public GameState GameState;
 
+    public Animator Animator;
+
     public float CurrentGameTime
     {
         get

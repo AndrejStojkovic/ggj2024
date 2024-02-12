@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
+    public PoliceChaseScript policeChaseScript;
+    public Animator Animator;
     public Rigidbody2D rb;
     public GameObject[] Platform = new GameObject[3];
     public GameObject obstacle;
@@ -25,14 +27,20 @@ public class PlayerJump : MonoBehaviour
 
     public GameState GameState;
 
+    public int DeathScene = 5;
+
     //public float jump;
     //private bool isJumping;
 
     void Start()
     {
         currentGameTime = 0;
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponentInChildren<Rigidbody2D>();
         previousRow = row;
+        if(policeChaseScript)
+        {
+            policeChaseScript = PoliceChaseScript.Instance;
+        }
     }
 
     void Update()
@@ -77,15 +85,10 @@ public class PlayerJump : MonoBehaviour
         switch(tag) {
             case "Obstacle":
                 if (!hasInvincibility) {
-                    if (lives != 0) {
-                        lives--;
-                    }
-
-                    // dumb check, but works :)
-                    if(lives == 0){
-                        Debug.Log("Game over!");
-                        GameState = GameState.GAMEOVER;
-                    }
+                    policeChaseScript.Animator.speed = 0f;
+                    Animator.Play("Hit");
+                    Debug.Log("Game over!");
+                    GameState = GameState.GAMEOVER;
                 }
                 break;
             case "ExtraLife":
@@ -99,6 +102,11 @@ public class PlayerJump : MonoBehaviour
                 invincibilityStartTime = currentGameTime;
                 break;
         }
+    }
+
+    public void OnGracePeriodEnd()
+    {
+        SceneManager.Instance.OpenScene(DeathScene);
     }
 
     //void OnCollisionEnter2D(Collision2D other) {

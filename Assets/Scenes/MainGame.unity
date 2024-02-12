@@ -164,7 +164,7 @@ MonoBehaviour:
   Cap: 3
   MinAmount: 1
   MaxAmount: 9
-  Offset: {x: 0, y: 5, z: 0}
+  Offset: {x: 0, y: 4.25, z: 0}
   StartNum: 0
 --- !u!4 &116635816
 Transform:
@@ -174,13 +174,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116635814}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.31623283, y: 4.998139, z: -4.3811064}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.8610984, y: 1.3587098, z: -5.8919396}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2127368445}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1805011657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &125099511
 GameObject:
@@ -1095,12 +1095,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593492465}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9438651, y: 5.160605, z: -9.415021}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.0946004, y: -6.377812, z: -9.356315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1999682583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &605989364
 GameObject:
@@ -1166,13 +1166,13 @@ MonoBehaviour:
   Name: Junkies
   Prefabs:
   - Prefab: {fileID: 4246860060497580012, guid: 4a01d3bd8ae5d484c8b7cb1a923d0896, type: 3}
-    Probability: 0.001
-  - Prefab: {fileID: 147265090921947151, guid: a7c4a7b5c15f082419bd2a838b2d82dd, type: 3}
-    Probability: 0.005
-  - Prefab: {fileID: 6526492784308554811, guid: e179f3a265478804394436f52a76fa76, type: 3}
     Probability: 0.01
-  - Prefab: {fileID: 296557913295957636, guid: ad33e91974fdfad4c84a25640572a061, type: 3}
+  - Prefab: {fileID: 147265090921947151, guid: a7c4a7b5c15f082419bd2a838b2d82dd, type: 3}
+    Probability: 0.0125
+  - Prefab: {fileID: 6526492784308554811, guid: e179f3a265478804394436f52a76fa76, type: 3}
     Probability: 0.015
+  - Prefab: {fileID: 296557913295957636, guid: ad33e91974fdfad4c84a25640572a061, type: 3}
+    Probability: 0.0175
   - Prefab: {fileID: 4895513925895797445, guid: 07d58dc4e690db84da01a2e764b6f91c, type: 3}
     Probability: 0.02
   - Prefab: {fileID: 5170267243060585176, guid: 737a31cde22b8af40935c4eed0217bdf, type: 3}
@@ -1182,14 +1182,14 @@ MonoBehaviour:
   - Prefab: {fileID: 9215906584551621746, guid: 4b9491d10b4e3764fbf587e6e11d3985, type: 3}
     Probability: 1
   Collider: {fileID: 134706493}
-  MinDistance: 20
+  MinDistance: 30
   Delay: 15
   MinPerSpawn: 1
   MaxPerSpawn: 1
   Cap: 10
   MinAmount: 1
   MaxAmount: 9
-  Offset: {x: 0, y: 5, z: 0}
+  Offset: {x: 0, y: 4.25, z: 0}
   StartNum: 4
 --- !u!4 &621745541
 Transform:
@@ -1199,13 +1199,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621745539}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.31623283, y: 4.998139, z: -4.3811064}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.8610984, y: 1.3587098, z: -5.8919396}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 134706492}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1805011657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &649133332
 GameObject:
@@ -3245,6 +3245,40 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1805011656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805011657}
+  m_Layer: 0
+  m_Name: Spawn System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1805011657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805011656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1773312, y: 3.639429, z: 1.5108331}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 621745541}
+  - {fileID: 116635816}
+  - {fileID: 1989391015}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824845673
 GameObject:
   m_ObjectHideFlags: 0
@@ -3515,8 +3549,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989391013}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1773312, y: 3.639429, z: 1.5108331}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3524,7 +3558,7 @@ Transform:
   - {fileID: 1868172288}
   - {fileID: 1571758533}
   - {fileID: 803661692}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1805011657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1991830110
 PrefabInstance:
@@ -3625,7 +3659,7 @@ MonoBehaviour:
   Day: 0
   Money: 0
   Price: 100
-  PoliceChaseScene: 3
+  PoliceChaseScene: 2
 --- !u!4 &1999682583
 Transform:
   m_ObjectHideFlags: 0
@@ -3638,7 +3672,8 @@ Transform:
   m_LocalPosition: {x: 1.1507354, y: 11.538417, z: -0.05870646}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 593492467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2000366795 stripped
@@ -3911,10 +3946,7 @@ SceneRoots:
   - {fileID: 1589737722}
   - {fileID: 435327302}
   - {fileID: 678662022}
-  - {fileID: 593492467}
-  - {fileID: 621745541}
-  - {fileID: 116635816}
-  - {fileID: 1989391015}
+  - {fileID: 1805011657}
   - {fileID: 1553813049}
   - {fileID: 180360675}
   - {fileID: 741767831}

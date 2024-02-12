@@ -67,10 +67,10 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(DealKey))
         {
-            Deal();
             CanMove = false;
-            IsDealing = true;
-            OnDealingStateChange.Invoke(IsDealing);
+            // Deal();
+            // IsDealing = true;
+            // OnDealingStateChange.Invoke(IsDealing);
             Animator.SetBool("IsDealing", true);
         }
 
@@ -78,6 +78,13 @@ public class PlayerController : MonoBehaviour
         {
             Animator.SetBool("IsDealing", false);
         }
+    }
+
+    public void StartDealing()
+    {
+        Deal();
+        IsDealing = true;
+        OnDealingStateChange.Invoke(IsDealing);
     }
 
     public void OnDealingEnded()

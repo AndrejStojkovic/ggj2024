@@ -207,7 +207,7 @@ MonoBehaviour:
   IntervalRange: {x: 0, y: 10}
   Popup: {fileID: 7055177481197630917}
   CheckDelay: 10
-  MinDistanceForDespawn: 20
+  MinDistanceForDespawn: 30
 --- !u!95 &1172149724279627086
 Animator:
   serializedVersion: 5
