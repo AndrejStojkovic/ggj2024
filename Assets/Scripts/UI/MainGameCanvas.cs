@@ -24,6 +24,8 @@ public class MainGameCanvas : MonoBehaviour
     public Transform NotificationTransform;
     public Transform NotificationParent;
 
+    public GameObject ControlsView;
+
     void Awake()
     {
         instance = this;
@@ -40,5 +42,11 @@ public class MainGameCanvas : MonoBehaviour
         go.transform.SetPositionAndRotation(NotificationTransform.position, NotificationTransform.rotation);
         Notification notification = go.GetComponentInParent<Notification>();
         notification.SetValue(gm.Price * amount);
+    }
+
+    public void SetView(bool target)
+    {
+        InfoView.SetActive(target);
+        ControlsView.SetActive(target);
     }
 }

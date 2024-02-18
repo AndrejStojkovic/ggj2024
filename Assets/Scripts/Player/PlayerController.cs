@@ -33,11 +33,17 @@ public class PlayerController : MonoBehaviour
     public bool IsDealing = false;
     public bool CanMove = true;
 
+    public bool IsLeftPressed = false;
+    public bool IsRightPressed = false;
+    public bool IsDealPressed = false;
+    private bool lastDealPressed = false;
+
     public UnityEvent<bool> OnDealingStateChange = new UnityEvent<bool>();
 
     void Awake()
     {
         instance = this;
+        lastDealPressed = IsDealPressed;
     }
 
     void Start()
@@ -55,7 +61,8 @@ public class PlayerController : MonoBehaviour
     {
         if(CanMove)
         {
-            var input = Input.GetAxisRaw("Horizontal");
+            float input = IsRightPressed ? 1f : IsLeftPressed ? -1f : 0f;
+            if(IsRightPressed && IsLeftPressed) input = 0f;
             rb.AddForce(new Vector2(input * Speed * Time.deltaTime, 0f));
             Animator.SetBool("IsIdle", input == 0f);
 
@@ -65,19 +72,18 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(DealKey))
+        if(!lastDealPressed && IsDealPressed)
         {
             CanMove = false;
-            // Deal();
-            // IsDealing = true;
-            // OnDealingStateChange.Invoke(IsDealing);
             Animator.SetBool("IsDealing", true);
         }
 
-        if(Input.GetKeyUp(DealKey))
+        if(lastDealPressed && !IsDealPressed)
         {
             Animator.SetBool("IsDealing", false);
         }
+
+        lastDealPressed = IsDealPressed;
     }
 
     public void StartDealing()
