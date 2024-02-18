@@ -38,6 +38,7 @@ public class MainGameCanvas : MonoBehaviour
 
     public void MoneyNotification(float amount)
     {
+        if(amount <= 0) return;
         GameObject go = Instantiate(MoneyNotificationPrefab, NotificationParent);
         go.transform.SetPositionAndRotation(NotificationTransform.position, NotificationTransform.rotation);
         Notification notification = go.GetComponentInParent<Notification>();

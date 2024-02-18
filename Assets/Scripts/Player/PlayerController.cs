@@ -118,6 +118,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        float total = 0f;
+
         for(int i = 0; i < collisions.Length; i++)
         {
             Debug.Log("Collision found: " + collisions[i].transform.name);
@@ -136,12 +138,13 @@ public class PlayerController : MonoBehaviour
                 if(junkie.Use())
                 {
                     PendingMoney += junkie.Amount * GameManager.Instance.Price;
-                    MainGameCanvas.Instance.MoneyNotification(junkie.Amount);
+                    total += junkie.Amount;
                 }
                 Debug.Log("[DEALING] Junkie found, using!", junkie.gameObject);
-                break;
             }
         }
+
+        MainGameCanvas.Instance.MoneyNotification(total);
     }
 
     public void OnCaught()
