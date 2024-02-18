@@ -8,9 +8,22 @@ public class PauseSystem : MonoBehaviour
     public GameObject PauseView;
     public Button ResumeButton;
     public Button QuitButton;
+    public MainGameCanvas MainGameCanvas;
 
     private GameManager gm;
     private bool state = false;
+
+    public bool State
+    {
+        get
+        {
+            return state;
+        }
+        set
+        {
+            state = value;
+        }
+    }
 
     void Start()
     {
@@ -21,19 +34,26 @@ public class PauseSystem : MonoBehaviour
         QuitButton.onClick.AddListener(Quit);
     }
 
-    void Update()
+    // void Update()
+    // {
+    //     if(Input.GetKeyDown(KeyCode.Escape))
+    //     {
+    //         state = !state;
+    //         Refresh();
+    //     }
+    // }
+
+    public void Pause()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            state = !state;
-            Refresh();
-        }
+        state = true;
+        Refresh();
     }
 
     void Refresh()
     {
         gm.Pause(state);
         PauseView.SetActive(state);
+        MainGameCanvas.SetView(!state);
     }
 
     public void Resume()
